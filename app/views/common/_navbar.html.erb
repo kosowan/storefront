@@ -1,0 +1,17 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <p class="title"><%= link_to "Red River Clay Company", root_path %></p>
+    </div>
+  </div>
+
+  <div><hr class="navbar-divider"></div>
+
+  <div class="navbar-start">
+    <% @categories.each do |category| %>
+      <div class="navbar-item">
+        <%= link_to category.name, category %>
+      </div>
+      <% end %>
+  </div>
+</nav>
