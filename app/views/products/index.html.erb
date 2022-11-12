@@ -1,8 +1,11 @@
 <h1>Products#index</h1>
-<% @products.each do |product| %>
-  <%= link_to product.name, product %>
-  <p><%= product.description %></p>
-  <p><%= product.price %></p>
-  <p><%= product.category_id %></p>
-  <br>
-<% end %>
+<%# <div class="tile is-ancestor"> %>
+  <% @products.each do |product| %>
+    <div class="box is-4">
+      <%= link_to product.name, product %>
+      <p><%= product.description %></p>
+      <p><%= product.price %></p>
+      <p><%= product.category_id %></p>
+    </div>
+  <% end %>
+<%# </div> %>

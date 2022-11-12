@@ -1,6 +1,20 @@
-<h1>Products#show</h1>
-<p><%= @product.name %></p>
-<p><%= @product.description %></p>
-<p><%= @product.price %></p>
-<p><%= link_to @product.category.name, @product.category %></p>
-<br>
+<nav class="level">
+<div class="is-6 level-item">
+<div class="card">
+  <% if @product.image.present? %>
+    <div class="card-image">
+      <figure class="image">
+        <%= image_tag @product.image %>
+      </figure>
+    </div>
+  <% end %>
+
+  <div class="content">
+    <p><%= @product.name %></p>
+    <p><%= @product.description %></p>
+    <p>Price: $<%= @product.price %></p>
+    <p>See more <%= link_to @product.category.name, @product.category %></p>
+  </div>
+</div>
+</div>
+</nav>

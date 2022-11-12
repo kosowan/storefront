@@ -1,5 +1,25 @@
 <h1>Categories#show</h1>
 <p><%= @category.name %></p>
+<section>
 <% @category.products.each do |product| %>
-  <%= link_to product.name, product %>
+  <%# <%= link_to product.name, product %>
+
+  <aside>
+    <% if product.image.present? %>
+      <div class="image">
+        <figure class="image">
+          <%= image_tag product.image %>
+        </figure>
+      </div>
+    <% end %>
+
+    <h3><%= link_to product.name, product %></h3>
+    <p>Price: <%= product.price %></p>
+    <p><%= product.description %></p>
+  </aside>
+
 <% end %>
+
+</section>
+
+
