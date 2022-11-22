@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :categories, only: [:index, :show]
   resources :products, only: [:index, :show]
+  resources :cart, only: [:create, :destroy]
 end

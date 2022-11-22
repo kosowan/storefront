@@ -1,13 +1,18 @@
 <aside>
-  <% if product.image.present? %>
-    <div class="image">
-      <figure class="image">
-        <%= image_tag product.image %>
-      </figure>
-    </div>
-  <% end %>
+  <%= form_with url: cart_index_path, method: :post do %>
+    <% if product.image.present? %>
+      <div class="image">
+        <figure class="image">
+          <%= image_tag product.image %>
+        </figure>
+      </div>
+    <% end %>
 
-  <h3><%= link_to product.name, product %></h3>
-  <p>Price: <%= product.price %></p>
-  <p><%= product.description %></p>
+    <h3><%= link_to product.name, product %></h3>
+    <p>Price: <%= product.price %></p>
+    <p><%= product.description %></p>
+
+    <%= hidden_field_tag(:id, product.id) %>
+    <%= button_tag 'Add to cart ✅' %>
+  <% end %>
 </aside>
