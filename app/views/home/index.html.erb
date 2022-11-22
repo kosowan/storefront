@@ -8,7 +8,7 @@
 
 <section>
 
-  <%# <p>You have visited this page <%= pluralize cart, 'time' %>
+  <p>You have visited this page <%= pluralize @visit_count, 'time' %></p>
   <%= render @products %>
 
 </section>
