@@ -14,7 +14,12 @@
 
   <body>
     <%= render partial: 'common/navbar' %>
-    <%= debug cart %>
+    <header>
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+    </header>
+    <%= debug session[:shopping_cart] %>
     <%= yield %>
   </body>
 </html>
