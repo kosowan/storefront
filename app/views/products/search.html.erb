@@ -1,0 +1,12 @@
+<div class="box has-background-link-light">
+
+  <p class="title mb-5">
+    Searched for: <%= params[:keywords] %>
+  </p>
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product %></li>
+    <% end %>
+  </ul>
+
+</div>
