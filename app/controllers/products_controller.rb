@@ -15,7 +15,14 @@ class ProductsController < ApplicationController
 
 
     wildcard_search = "%#{params[:keywords]}%"
+    category_select = "%#{params[:category_select]}%"
 
-    @products = Product.where("name LIKE ?", wildcard_search) #and category like dropdown value
+
+    if (category_select.nil?)
+      @products = Product.where("name LIKE ?", wildcard_search).or(Product.where("description LIKE ?", wildcard_search))
+    else
+      @products = Product.where("name LIKE ?", wildcard_search).where("category_id LIKE ?", category_select)
+      .or(Product.where("description LIKE ?", wildcard_search).where("category_id LIKE ?", category_select))
+    end
   end
 end
