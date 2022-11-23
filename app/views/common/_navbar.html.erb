@@ -12,7 +12,7 @@
       <div class="navbar-item">
         <%= link_to category.name, category %>
       </div>
-      <% end %>
+    <% end %>
 
   </div>
   <div class="navbar-end">
@@ -22,6 +22,18 @@
           <div class="control">
             <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search Products') %>
           </div>
+
+          <select>
+            <option value="*">
+              All
+            </option>
+            <% @categories.each do |category| %>
+              <option value="<%= category.name%>">
+                <%= category.name %>
+              </option>
+            <% end %>
+          </select>
+
           <div class="control">
             <%= submit_tag("Search", class: "button is-success") %>
           </div>

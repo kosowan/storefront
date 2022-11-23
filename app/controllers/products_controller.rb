@@ -16,6 +16,6 @@ class ProductsController < ApplicationController
 
     wildcard_search = "%#{params[:keywords]}%"
 
-    @products = Product.where("name LIKE ?", wildcard_search)
+    @products = Product.where("name LIKE ?", wildcard_search) #and category like dropdown value
   end
 end
