@@ -6,6 +6,9 @@ class CartController < ApplicationController
       session[:shopping_cart] << id #push id to end of array
       product = Product.find(id)
       flash[:notice] = "➕ #{product.name} added to cart."
+
+
+
     end
     redirect_to root_path
   end

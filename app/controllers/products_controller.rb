@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order(:name)
+    @products = Product.order(:name).page(params[:page])
     @categories = Category.order(:name)
     # session[:visit_count]
   end
@@ -13,10 +13,8 @@ class ProductsController < ApplicationController
   def search
     @categories = Category.order(:name)
 
-
     wildcard_search = "%#{params[:keywords]}%"
     category_select = "%#{params[:category_select]}%"
-
 
     if (category_select.nil?)
       @products = Product.where("name LIKE ?", wildcard_search).or(Product.where("description LIKE ?", wildcard_search))
