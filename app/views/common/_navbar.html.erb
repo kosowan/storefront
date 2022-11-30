@@ -7,14 +7,14 @@
 
   <div><hr class="navbar-divider"></div>
 
-  <div class="navbar-start">
+  <%# <div class="navbar-start">
     <% @categories.each do |category| %>
-      <div class="navbar-item">
+      <%# <div class="navbar-item">
         <%= link_to category.name, category %>
-      </div>
+      <%# </div>
     <% end %>
 
-  </div>
+  <%# </div> %>
   <div class="navbar-end">
     <div class="navbar-item">
       <%= form_with(url: search_products_path, method: :get, local: true) do%>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :customers
+  devise_scope :customer do
+    get '/customers/sign_out' => 'devise/sessions#destroy'
+ end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'categories/index'

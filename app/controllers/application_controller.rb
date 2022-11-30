@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :initialize_session
   helper_method :cart
 
+
+
   private
   def initialize_session
     #will initialize the visit count to zero for new users
