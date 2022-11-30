@@ -1,12 +1,24 @@
-<div class="box has-background-link-light">
+<%# <div class="box has-background-link-light">
 
   <p class="title mb-5">
     Searched for: <%= params[:keywords] %>
-  </p>
+  <%# </p>
   <ul>
     <% @products.each do |product| %>
-      <li><%= link_to product.name, product %></li>
-    <% end %>
-  </ul>
+      <%# <li><%= link_to product.name, product %></li>
+    <%# <% end %>
+  <%# </ul>
 
-</div>
+</div> %>
+<p class="title mb-5">
+    Searched for: <%= params[:keywords] %>
+  </p>
+<section>
+
+  <%# <p>You have visited this page <%= pluralize cart, 'time' </p> %>
+  <%= render @products %>
+
+
+
+</section>
+
