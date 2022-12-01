@@ -1,5 +1,34 @@
 Product.destroy_all
 Category.destroy_all
+Customer.destroy_all
+Province.destroy_all
+
+# provinces
+manitoba = Province.create(name: "Manitoba", pst: 0.05, gst: 0.07, hst: 0.00)
+
+# provinces = [
+
+#     { :name => "Alberta", :pst => "0.00", :gst => "0.05", :harmonized => "0.00" },
+
+#     { :name => "British Columbia", :pst => "0.07", :gst  => "0.05", :harmonized => "0.00" },
+
+#     { :name => "Manitoba", :pst => "0.07", :gst  => "0.05", :harmonized => "0.00" },
+
+#     { :name => "New Brunswick", :pst => "0.00", :goods_and_services => "0.00", :harmonized => "0.15" },
+
+#     { :name => "Newfoundland and Labrador", :pst => "0.00", :goods_and_services => "0.00", :harmonized => "0.15" },
+
+#     { :name => "Northwest Territories", :pst => "0.00", :goods_and_services => "0.05", :harmonized => "0.00" },
+
+#     { :name => "Nova Scotia", :pst => "0.00", :goods_and_services => "0.00", :harmonized => "0.15" },
+
+#     { :name => "Nunavut", :pst => "0.00", :goods_and_services => "0.05", :harmonized => "0.00" },
+
+#     { :name => "Ontario", :pst => "0.00", :goods_and_services => "0.00", :harmonized => "0.13" },
+
+#     { :name => "Prince Edward Island", :pst => "0.00", :goods_and_services => "0.00", :harmonized => "0.15" },
+
+# ]
 
 # categories
 mugs = Category.create(name: "mugs")
@@ -70,5 +99,5 @@ superDinnerSet = Product.create(
   category_id: collections.id
   )
 
-
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+#Uncomment line below on first seed.
+#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

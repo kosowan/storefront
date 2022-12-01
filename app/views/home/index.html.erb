@@ -5,9 +5,11 @@
               locals: { show_link: true } %>
   <%# </div> %>
 <%# </section> %>
-
 <section>
   <%= render partial: 'common/navbar' %>
+</section>
+<section>
+
   <%# <p>You have visited this page <%= pluralize cart, 'time' </p> %>
   <%= render @products %>
 
