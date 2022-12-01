@@ -4,7 +4,19 @@ Customer.destroy_all
 Province.destroy_all
 
 # provinces
-manitoba = Province.create(name: "Manitoba", pst: 0.05, gst: 0.07, hst: 0.00)
+manitoba = Province.create(name: "Manitoba", pst: 0.07, gst: 0.05, hst: 0.00)
+alberta = Province.create(name: "Alberta", pst: 0.00, gst: 0.05, hst: 0.00)
+british_comumbia = Province.create(name: "British Columbia", pst: 0.07, gst: 0.05, hst: 0.00)
+new_brunswick = Province.create(name: "New Brunswick", pst: 0.00, gst: 0.00, hst: 0.15)
+newfoundland_and_labrador = Province.create(name: "Newfoundland and Labrador", pst: 0.00, gst: 0.00, hst: 0.15)
+northwest_territories = Province.create(name: "Northwest Territories", pst: 0.00, gst: 0.05, hst: 0.00)
+nova_scotia = Province.create(name: "Nova Scotia", pst: 0.00, gst: 0.00, hst: 0.15)
+nunavut = Province.create(name: "New Brunswick", pst: 0.00, gst: 0.05, hst: 0.00)
+ontario = Province.create(name: "Ontario", pst: 0.00, gst: 0.00, hst: 0.13)
+prince_edward_island = Province.create(name: "Prince Edward Island", pst: 0.00, gst: 0.00, hst: 0.15)
+quebec = Province.create(name: "Quebec", pst: 0.09975, gst: 0.05, hst: 0.00)
+saskatchewan = Province.create(name: "Saskatchewan", pst: 0.06, gst: 0.05, hst: 0.00)
+yukon = Province.create(name: "Yukon", pst: 0.00, gst: 0.05, hst: 0.00)
 
 # provinces = [
 
