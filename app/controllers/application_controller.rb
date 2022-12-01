@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     @provinces = Province.order(:name)
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :postal_code, :address, :province_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :postal_code, :address, :province_id])
   end
 
   private
