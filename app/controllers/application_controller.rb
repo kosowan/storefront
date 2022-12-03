@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
 
   private
   def initialize_order
+    # if user signed in {
     @order ||= Order.find_by(id:session[:order_id])
 
     if customer_signed_in? && @order.nil?
