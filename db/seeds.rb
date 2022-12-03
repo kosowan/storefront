@@ -2,6 +2,8 @@ Product.destroy_all
 Category.destroy_all
 Customer.destroy_all
 Province.destroy_all
+OrderItem.destroy_all
+Order.destroy_all
 
 # provinces
 manitoba = Province.create(name: "Manitoba", pst: 0.07, gst: 0.05, hst: 0.00)

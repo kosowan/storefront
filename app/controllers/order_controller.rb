@@ -1,5 +1,10 @@
 class OrderController < ApplicationController
   def show
+    if !customer_signed_in?
+      flash[:notice] = "Please sign in before checking out."
+      redirect_to root_path
+    end
+
     @render_order = false
   end
 

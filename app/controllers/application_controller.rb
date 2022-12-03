@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_customer!
   before_action :initialize_session
   helper_method :cart
 
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::Base
   # @provinces = Province.order(:name)
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   protected
 
@@ -26,8 +28,8 @@ class ApplicationController < ActionController::Base
   def initialize_order
     @order ||= Order.find_by(id:session[:order_id])
 
-    if @order.nil?
-      @order = Order.create
+    if customer_signed_in? && @order.nil?
+      @order = Order.create(customer_id: current_customer.id)
       session[:order_id] = @order.id
     end
     session[:order] ||= []
