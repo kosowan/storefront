@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order', to: 'order#show'
+  post 'order/add'
+  post 'order/remove'
+
   devise_for :customers
   devise_scope :customer do
     get '/customers/sign_out' => 'devise/sessions#destroy'
@@ -27,4 +31,6 @@ Rails.application.routes.draw do
     end
   end
   resources :cart, only: [:create, :destroy]
+  resources :order, only: [:add, :remove, :show]
+
 end

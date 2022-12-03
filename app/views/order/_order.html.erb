@@ -1,0 +1,8 @@
+<h1>Order</h1>
+<%# <% if @order.order_items.count > 0 %> %>
+<% if order.present? %>
+  <%= render "order/order_items" %>
+  <%# <p>Total: <%= order.total %> %>
+<% else %>
+  <p>Your cart is empty</p>
+<% end %>

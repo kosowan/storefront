@@ -12,16 +12,34 @@
     <p>Price: <%= product.price %></p>
     <p><%= product.description %></p>
 
+    <%# <% if order.include?(order_item)? %>
+      <%# <%= button_to order_path(order_item),%> %> %>
+    <%#  %>
 
-    <% if cart.include?(product) %>
-      <%= button_to cart_path(product), method: :delete do%>
-        ➖ Remove from cart
-        <% end %>
-    <% else %>
-      <%= form_with url: cart_index_path, method: :post do %>
-        <%= hidden_field_tag(:id, product.id) %>
-        <%= button_tag 'Add to cart ✅' %>
-      <% end %>
+    <%# <%= form_with url: order_add_path, method: :post do %> %>
+      <%# <%= hidden_field :id, value: product.id %> %>
+      <%# <%= number_field :quantity, value: 0, min: 1 %> %>
+      <%# <%= button_tag "Add to cart" %> %>
+    <%# <% end %> %>
+
+    <%= form_with(url: order_add_path) do |f| %>
+      <%= f.hidden_field :id, value: product.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Add to cart" %>
     <% end %>
+
+    <%# <% if cart.include?(product) %>
+      <%# <%= button_to cart_path(product), method: :delete do%>
+        <%# ➖ Remove from cart
+        <% end %>
+    <%# <% else %>
+      <%# <%= form_with url: cart_index_path, method: :post do %>
+        <%# <%= hidden_field_tag(:id, product.id) %>
+        <%# <%= number_field :quantity, value: 0, min: 1 %>
+        <%# <%= button_tag 'Add to cart ✅' %>
+      <%# <% end %>
+
+
+    <%# <% end %>
   <%# <% end %>
 </aside>

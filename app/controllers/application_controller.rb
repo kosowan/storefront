@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :initialize_session
   helper_method :cart
 
+  before_action :set_render_order
+  before_action :initialize_order
+  helper_method :order
+
   # @provinces = Province.order(:name)
 
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -13,6 +17,26 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :postal_code, :address, :province_id])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :postal_code, :address, :province_id])
   end
+
+  def set_render_order
+    @render_order = true
+  end
+
+  private
+  def initialize_order
+    @order ||= Order.find_by(id:session[:order_id])
+
+    if @order.nil?
+      @order = Order.create
+      session[:order_id] = @order.id
+    end
+    session[:order] ||= []
+  end
+
+  def order
+    OrderItem.find(session[:order])
+  end
+
 
   private
   def initialize_session

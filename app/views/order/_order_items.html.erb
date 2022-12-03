@@ -1,0 +1,29 @@
+<% order.each do |item| %>
+  <aside>
+    <% if item.product.image.present? %>
+      <div class="image">
+          <figure class="image">
+            <%= image_tag product.image %>
+          </figure>
+      </div>
+    <% end %>
+
+    <h3><%= link_to item.product.name, item.product %></h3>
+    <p>Price: <%= item.product.price %></p>
+    <p>Quantity: <%= item.quantity %></p>
+    <p><%= item.product.description %></p>
+    <p>Total: <%= item.total %>
+
+    <%= form_with(url: order_add_path) do |f| %>
+      <%= f.hidden_field :id, value: item.id %>
+      <%= f.number_field :quantity, value: item.quantity, min: 0 %>
+      <%= f.submit "Add to cart" %>
+    <% end %>
+
+    <%= form_with(url: order_remove_path) do |f| %>
+      <%= f.hidden_field :id, value: item.id %>
+      <%= f.submit "Remove from cart" %>
+    <% end %>
+
+  </aside>
+<% end %>

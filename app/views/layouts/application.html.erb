@@ -24,6 +24,7 @@
   <% end %>
   </p>
 
+  <%= render partial: "order/order" if @render_order %>
     <%# <%= render partial: 'common/navbar' %> %>
     <header>
       <% if flash[:notice] %>
