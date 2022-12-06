@@ -14,7 +14,15 @@
       </div>
     <% end %>
 
-  <%# </div> %>
+    <div class="navbar-item">
+      <%= link_to "New Items", products_new_path %>
+    </div>
+
+    <div class="navbar-item">
+      <%= link_to "On Sale", products_sale_path %>
+    </div>
+
+  </div>
   <div class="navbar-end">
     <div class="navbar-item">
       <%= link_to "View Cart", order_path%>

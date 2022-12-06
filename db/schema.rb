@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_03_034228) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_203847) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -116,7 +116,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_034228) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sale_id", null: false
+    t.decimal "sale_price"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["sale_id"], name: "index_products_on_sale_id"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -128,6 +131,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_034228) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.decimal "sale_percentage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "customers", "provinces"
@@ -135,4 +144,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_034228) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "sales"
 end
