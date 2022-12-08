@@ -20,6 +20,7 @@ class OrderController < ApplicationController
 
     logger.debug("product: #{product} order: #{order}")
     logger.debug("quantity: #{quantity}")
+    logger.debug("order: #{order}")
 
     # orderitem = OrderItem.create(quantity: quantity, listed_price: product.price, order_id: order, product_id: id)
 
