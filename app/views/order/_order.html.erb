@@ -2,8 +2,8 @@
 <%# <% if @order.order_items.count > 0 %> %>
 <% if order.present? %>
   <%= render "order/order_items" %>
-  <p>Subtotal: <%= @order.subtotal %> </p>
-  <p>Total: <%= @order.total %>
+  <p>Subtotal: <%= @order.subtotal / 100%> </p>
+  <p>Total: <%= @order.total / 100%>
 
   <%= form_with url: checkout_create_path, remote: true do %>
     <%= hidden_field_tag(:order_id, order) %>

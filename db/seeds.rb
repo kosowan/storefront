@@ -60,7 +60,7 @@ twenty_five_off = Sale.create(sale_percentage: 0.75)
 # products
 largeMug = Product.create(
   name: "large mug",
-  price: 14.00,
+  price: 1400.to_i,
   description: "Large homemade ceramic mug",
   category_id: mugs.id,
   sale_id: not_on_sale.id
@@ -68,63 +68,63 @@ largeMug = Product.create(
   )
 abstractMug = Product.create(
   name: "abstract mug",
-  price: 16.00,
+  price: 1600.to_i,
   description: "Abstract art on a mug.",
   category_id: mugs.id,
   sale_id: not_on_sale.id
   )
 mcmplates = Product.create(
   name: "mcm plates",
-  price: 12.00,
+  price: 1200.to_i,
   description: "Two midcentury modern side plates.",
   category_id: plates.id,
   sale_id: twenty_five_off.id
   )
 largePlates = Product.create(
   name: "large plates",
-  price: 15.00,
+  price: 1500.to_i,
   description: "Two large homemade ceramic plates.",
   category_id: plates.id,
   sale_id: twenty_five_off.id
   )
 fruitbowl = Product.create(
   name: "fruit bowl",
-  price: 14.00,
+  price: 1400.to_i,
   description: "A bowl for fruit.",
   category_id: bowls.id,
   sale_id: not_on_sale.id
   )
 soupbowl = Product.create(
   name: "soup bowl",
-  price: 14.00,
+  price: 1400.to_i,
   description: "A bowl for soup.",
   category_id: bowls.id,
   sale_id: not_on_sale.id
   )
 smallvase = Product.create(
   name: "small vase",
-  price: 8.00,
+  price: 800.to_i,
   description: "A small vase",
   category_id: vases.id,
   sale_id: not_on_sale.id
   )
 largeVase = Product.create(
   name: "large vase",
-  price: 13.00,
+  price: 1300.to_i,
   description: "Large homemade ceramic vase",
   category_id: vases.id,
   sale_id: not_on_sale.id
   )
 dinnerSet = Product.create(
   name: "dinner set",
-  price: 36.00,
+  price: 3600.to_i,
   description: "Custom ceramic dinner set",
   category_id: collections.id,
   sale_id: not_on_sale.id
   )
 superDinnerSet = Product.create(
   name: "super dinner set",
-  price: 48.00,
+  price: 4800.to_i,
   description: "A complete super dinner set of custom ceramics",
   category_id: collections.id,
   sale_id: not_on_sale.id
