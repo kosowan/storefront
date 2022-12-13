@@ -1,0 +1,8 @@
+<p>
+Thank you <%= @payment_intent.shipping.name %> for your purchase! It will be delivered to
+<%= @payment_intent.shipping.address.line1 %> <%= @payment_intent.shipping.address.city %> <%= @payment_intent.shipping.address.state %> soon!
+</p>
+<p>Order Status: <%= @payment_intent.status %></p>
+<p>Invoice: $<%= (@payment_intent.amount.to_d / 100) %></p>
+
+<%= debug @payment_intent %>

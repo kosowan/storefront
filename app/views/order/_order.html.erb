@@ -5,8 +5,8 @@
   <p>Subtotal: <%= @order.subtotal / 100%> </p>
   <p>Total: <%= @order.total / 100%>
 
-  <%= form_with url: checkout_create_path, remote: true do %>
-    <%= hidden_field_tag(:order_id, order) %>
+  <%= form_with url: checkout_create_path, remote: true, data: { turbo: false } do %>
+    <%= hidden_field_tag(:id, @order.id) %>
     <%= button_tag 'Buy Now' %>
   <% end %>
 <% else %>
