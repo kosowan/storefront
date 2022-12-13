@@ -33,41 +33,45 @@ class CheckoutController < ApplicationController
 
     @line_items <<
     {
-            price_data: {
-              currency: 'cad',
-              unit_amount: (@order.subtotal * current_customer.province.gst).to_i,
-              # unit_amount: 100,
-              product_data: {
-                name: "GST",
-                description: "Goods and Servies Taxes"
-              }
-            },
-            quantity: 1
-          },
-          {
-            price_data: {
-              currency: 'cad',
-              unit_amount: (@order.subtotal * current_customer.province.pst).to_i,
-              # unit_amount: 100,
-              product_data: {
-                name: "PST",
-                description: "Provincial Sales Tax"
-              }
-            },
-            quantity: 1
-          },
-          {
-            price_data: {
-              currency: 'cad',
-              unit_amount: (@order.subtotal * current_customer.province.hst).to_i,
-              # unit_amount: 100,
-              product_data: {
-                name: "HST",
-                description: "Harmonized Sales Tax"
-              }
-            },
-            quantity: 1
-          }
+      price_data: {
+        currency: 'cad',
+        unit_amount: (@order.subtotal * current_customer.province.gst).to_i,
+        # unit_amount: 100,
+        product_data: {
+          name: "GST",
+          description: "Goods and Servies Taxes"
+        }
+      },
+        quantity: 1
+    }
+
+    @line_items <<
+    {
+      price_data: {
+        currency: 'cad',
+        unit_amount: (@order.subtotal * current_customer.province.pst).to_i,
+        # unit_amount: 100,
+        product_data: {
+          name: "PST",
+          description: "Provincial Sales Tax"
+        }
+      },
+      quantity: 1
+    }
+
+    @line_items <<
+    {
+      price_data: {
+        currency: 'cad',
+        unit_amount: (@order.subtotal * current_customer.province.hst).to_i,
+        # unit_amount: 100,
+        product_data: {
+          name: "HST",
+          description: "Harmonized Sales Tax"
+        }
+      },
+      quantity: 1
+    }
 
     @one = 1
 
@@ -99,7 +103,7 @@ class CheckoutController < ApplicationController
     })
 
     logger.debug(@customer)
-    debugger.log()
+    # debugger.log()
     logger.debug(@items.each do |item| item.product.name end)
 
 
