@@ -5,7 +5,7 @@ ActiveAdmin.register Order do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :subtotal, :total
+  permit_params :subtotal, :total, :listedgst, :listedpst, :listedhst
 
   form do |f|
     f.semantic_errors

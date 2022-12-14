@@ -30,7 +30,10 @@ class ApplicationController < ActionController::Base
     @order ||= Order.find_by(id:session[:order_id])
 
     if customer_signed_in? && @order.nil?
-      @order = Order.create(customer_id: current_customer.id)
+      @order = Order.create(customer_id: current_customer.id,
+                            listedgst: current_customer.province.gst,
+                            listpst: current_customer.province.pst,
+                            listedhst: current_customer.province.hst)
       session[:order_id] = @order.id
     end
     session[:order] ||= []
