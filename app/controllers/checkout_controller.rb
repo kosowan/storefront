@@ -242,7 +242,8 @@ class CheckoutController < ApplicationController
     Order.update(@order.id, :stripe_payment_id => @payment_intent.id,
                             :address => @payment_intent.shipping.address.line1,
                             :postal_code => @payment_intent.shipping.address.postal_code,
-                            :province => @payment_intent.shipping.address.state)
+                            :province => @payment_intent.shipping.address.state,
+                            :status => @payment_intent.status)
     # :status => @payment_intent.status
 
   end
