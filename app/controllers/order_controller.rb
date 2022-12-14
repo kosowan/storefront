@@ -94,4 +94,9 @@ class OrderController < ApplicationController
     # flash[:notice] = "➖ #{product.name} removed from cart."
   end
 
+  def myorders
+    @orders = Order.where("customer_id == ?", current_customer.id)
+    # @myorderitems = OrderItem.where("order_id == ?", order.id)
+  end
+
 end

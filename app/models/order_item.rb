@@ -7,10 +7,10 @@ class OrderItem < ApplicationRecord
     product.price * quantity
   end
 
-  def json
-    Jbuilder.new do |order_item|
-      order_item.listed_price listed_price
-      order_item.quantity quantity
-    end
-  end
+  # def json
+  #   Jbuilder.new do |order_item|
+  #     order_item.listed_price listed_price
+  #     order_item.quantity quantity
+  #   end
+  # end
 end

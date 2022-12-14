@@ -1,0 +1,19 @@
+<% @orders.each do |order| %>
+  <p>Order ID: <%= order.id %></p>
+  <p>Order Subtotal: $<%= order.subtotal / 100%></p>
+  <p>Order Total After Tax: $<%= order.total / 100%></p>
+
+  <p>Shipping Address: <%= order.address %> <%= order.province %> Canada, <%= order.postal_code%></p>
+  <p>Status: <%= order.status %>
+  <%# <br> %>
+  <p>Order Items:</p>
+  <br>
+  <% @myorderitems = OrderItem.where("order_id == ?", order.id) %>
+  <% @myorderitems.each do |item| %>
+    <p>Product Name: <%= item.product.name %></p>
+    <p>Quantity: <%= item.quantity %></p>
+    <p>Listed Price: $<%= item.listed_price / 100%></p>
+    <br>
+  <% end %>
+  <br>
+<% end %>
